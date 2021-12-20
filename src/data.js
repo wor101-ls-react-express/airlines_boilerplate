@@ -1395,4 +1395,12 @@ const airports = [
 
 ];
 
+export const getAirlineById = (id) => {
+  return airlines.find(airline => parseInt(airline.id, 10) === parseInt(id, 10))
+}
+
+export const getAirportByCode = (code) => {
+  return airports.find(airport => airport.code === code)
+}
+
 export default {routes, airlines, airports};
