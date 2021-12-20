@@ -5,6 +5,7 @@ import data from './data.js'
 import { getAirlineById, getAirportByCode } from './data.js';
 import Table from './components/Table'
 import Select from './components/Select'
+import Svg from './components/Svg'
 
 const App = () => {
   const [page, setPage] = useState(0)
@@ -123,36 +124,7 @@ const App = () => {
       <h1 className="title">Airline Routes</h1>
     </header>
     <section>
-    <svg className="map" viewBox="-180 -90 360 180">
-      <g transform="scale(1 -1)">
-        <image xlinkHref="equirectangular_world.jpg" href="equirectangular_world.jpg" x="-180" y="-90" height="100%" width="100%" transform="scale(1 -1)"/>
-        
-        { routes.map(route => {
-          const srcAirport = data.airports.find(airport => airport.code === route.src)
-          const x1 = srcAirport.long
-          const y1 = srcAirport.lat
-
-          const destAirport = data.airports.find(airport => airport.code === route.dest)
-          const x2 = destAirport.long
-          const y2 = destAirport.lat
-          
-
-            return (
-              <g key="">
-                <circle className="source" cx={x1} cy={y1}>
-                  <title></title>
-                </circle> 
-                <circle className="destination" cx={x2} cy={y2}>
-                  <title></title>
-                </circle>
-                <path d={`M${x1} ${y1} L ${x2} ${y2}`} />
-              </g>
-            )
-          })
-        }
-        
-      </g>
-    </svg>
+    <Svg routes={routes} airports={data.airports} />
       <p>
         Welcome to the app!
       </p>
