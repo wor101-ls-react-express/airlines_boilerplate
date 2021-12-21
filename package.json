@@ -11,7 +11,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
-  "engines": {"npm": "8.4.4", "node": "16.6.2"},
+  "engines": {"yarn": "1.22.17", "node": "16.6.2"},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
